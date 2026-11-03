@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button>Apple</button>
+<button>Banana</button>
+<button>Orange</button>
+
+<script>
+  const buttons = document.querySelectorAll("button");
+
+  buttons.forEach(function(button) {
+    button.addEventListener("click", function() {
+      console.log(this.textContent);
+    });
+  });
+</script>
+</body>
+
+<!-- What is Event Delegation?
+Event Delegation means adding one event listener to a parent element to handle events from its child elements.
+
+Imagine you have three buttons. Instead of adding a separate click event to every button, you add just one event listener to their parent -->
+<!-- Why do we use Event Delegation?
+- Less code: One listener can handle many child elements.
+- Better maintainability: You don't need to attach listeners individually.
+- Dynamic elements: It can handle new buttons added to the parent later, without attaching a new listener to each button.
+For example, in a shopping cart, you might have many product buttons. One parent event listener can handle clicks on all of them.
+Remember this simple definition
+Event Delegation = One parent event listener handles events from multiple child elements. -->
+</html>

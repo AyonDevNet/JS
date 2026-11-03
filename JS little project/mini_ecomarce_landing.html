@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Store</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #f3d994, #cce4bd);
+    padding: 40px 6%;
+    color: #222;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    width: 100%;
+    min-width: 0;
+    padding: 15px;
+    border-radius: 25px;
+    background: white;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    height: 190px;
+    background: #f3f3f3;
+    border-radius: 22px;
+    margin-bottom: 18px;
+}
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.description {
+    color: #888;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.price {
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.quantity {
+    width: 65px;
+    min-width: 0;
+    padding: 10px 5px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.add-to-cart {
+    flex: 1;
+    padding: 13px 8px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #ffc226, #ffa51b);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-to-cart:hover {
+    filter: brightness(0.95);
+}
+
+.cart {
+    margin-top: 40px;
+    padding: 25px;
+    background: white;
+    border-radius: 22px;
+}
+
+.cart h2 {
+    margin-bottom: 20px;
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+#cart-total {
+    color: #e99a00;
+}
+
+@media (max-width: 850px) {
+    .product-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    body {
+        padding: 25px 16px;
+    }
+
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+     </style>
+</head>
+<body>
+
+    <h1>Our Products</h1>
+
+    <main class="product-container">
+
+        <div class="product-card" data-id="1" data-price="129.99">
+            <div class="product-image">
+               <img src="./shoe image/Training Shoes.jpg" alt="">
+            </div>
+
+            <h3>Training Shoes</h3>
+            <p class="description">Comfortable shoes for everyday use.</p>
+                <p class="price">
+                    <span>RM</span> <span id="training_shoe_price">129.99</span>
+                </p>
+            <div class="product-actions">
+                <input type="number" min="1" value="1"  id="shoe_quantity"  class="quantity">
+                <button id="firt_add_to_cart" class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-id="2" data-price="149.99">
+            <div class="product-image">
+             <img src="./shoe image/Running Shoes.jpg" alt="" srcset="">
+            </div>
+
+            <h3>Running Shoes</h3>
+            <p class="description">Lightweight shoes for running.</p>
+                <p class="price">
+                    <span>RM</span> <span id="second_shoe_price">149.99</span>
+                </p>
+                            <div class="product-actions">
+                <input type="number" min="1" value="1" id="scond-shoe-quantity"  class="quantity">
+                <button class="add-to-cart" id="add-to-cart_second">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-id="3" data-price="179.99">
+            <div class="product-image">
+
+                <img src="./shoe image/Patent Shoes Sneakers For Men on Flipkart.jpg" alt="">
+            </div>
+
+            <h3>Casual Shoes</h3>
+            <p class="description">Stylish shoes for everyday wear.</p>
+                <p class="price">
+                    <span>RM</span> <span id="third_price">179.99</span>
+                </p>
+            <div class="product-actions">
+                <input type="number" min="1" value="1" id="third_ShoeQuantity" class="quantity">
+                <button class="add-to-cart"  id="add_to_cart_third">Add to Cart</button>
+            </div>
+        </div>
+
+    </main>
+
+    <section class="cart">
+        <h2>Shopping Cart</h2>
+
+        <div id="cart-items">
+            <!-- You will add cart items using JavaScript -->
+        </div>
+
+        <h3>Total: RM <span id="cart-total">0.00</span></h3>
+    </section>
+
+</body>
+<script>
+
+//  const first_btn_cart = document.getElementById("firt_add_to_cart");
+//  const first_shoe_price = document.getElementById("training_shoe_price");
+//  let total_price = document.getElementById("cart-total");
+
+//  const shoeQuantity = document.getElementById("shoe_quantity");
+
+//  //scond show
+//  const secondShoeBtn = document.getElementById("add-to-cart_second");
+//  const secondShoe = document.getElementById("second_shoe_price");
+//  const scond_ShoeQuantity = document.getElementById("scond-shoe-quantity");
+
+//  first_btn_cart.addEventListener("click", function(){
+
+//     // console.log("add")
+//     // let shopping_cart_total_price = total_price.textContent
+//     // first_shoe_price = shopping_cart_total_price;
+      
+//     //  total_price.innerText = first_shoe_price.innerText;
+
+//     //  const first_price = Number(first_shoe_price.innerText);
+//     //  const total_price_result = Number( total_price.innerText);
+//     //  const total_result = first_price + total_price_result;
+//     //  total_price.innerText = total_result;
+//     //  console.log(total_result);
+   
+
+    
+//     // const first_price = Number(first_shoe_price.innerText);
+//     // let InputValueQuantity = Number(shoeQuantity.value)
+//     // const total_price_result = Number( total_price.innerText);
+    
+//     //  const total_result = first_price * InputValueQuantity + total_price_result;
+//     //  total_price.innerText = total_result.toFixed(2);;
+
+//         const first_price = Number(first_shoe_price.innerText);
+//         const quantity = Number(shoe_quantity.value);
+
+//         const total_result = first_price * quantity;
+
+//         total_price.innerText = total_result.toFixed(2);
+
+//         // const first_price = Number(first_shoe_price.innerText);
+//             // const quantity = Number(shoe_quantity.value);
+
+//             // let total_result = 0;
+
+//             // for (let i = 0; i < quantity; i++) {
+//             //     total_result += first_price;
+//             // }
+
+//             // total_price.innerText = total_result.toFixed(2);
+
+//  })
+
+
+//  // second card 
+// secondShoeBtn.addEventListener("click", function () {
+
+//     const priceOfSecond = Number(secondShoe.innerText);
+//     const secondQuantity = Number(scond_ShoeQuantity.value);
+//     const currentTotal = Number(total_price.innerText);
+
+//     const totalResult = priceOfSecond * secondQuantity;
+
+//     total_price.innerText = (currentTotal + totalResult).toFixed(2);
+// });
+
+
+const first_btn_cart = document.getElementById("firt_add_to_cart");
+const first_shoe_price = document.getElementById("training_shoe_price");
+const total_price = document.getElementById("cart-total");
+const shoeQuantity = document.getElementById("shoe_quantity");
+
+// Second shoe
+const secondShoeBtn = document.getElementById("add-to-cart_second");
+const secondShoe = document.getElementById("second_shoe_price");
+const scond_ShoeQuantity = document.getElementById("scond-shoe-quantity");
+
+
+//third cart
+
+const third_btn = document.getElementById("add_to_cart_third");
+const input_field = document.getElementById("third_ShoeQuantity")
+const thirdprice = document.getElementById("third_price")
+
+// Shared cart total
+let cartTotal = 0;
+
+// First shoe: Training Shoes
+first_btn_cart.addEventListener("click", function () {
+    const firstPrice = Number(first_shoe_price.innerText);
+    const quantity = Number(shoeQuantity.value);
+
+    cartTotal += firstPrice * quantity;
+
+    total_price.innerText = cartTotal.toFixed(2);
+});
+
+// Second shoe: Running Shoes
+secondShoeBtn.addEventListener("click", function () {
+    const secondPrice = Number(secondShoe.innerText);
+    const quantity = Number(scond_ShoeQuantity.value);
+
+    cartTotal += secondPrice * quantity;
+
+    total_price.innerText = cartTotal.toFixed(2);
+});
+
+
+
+
+//third card 
+third_btn.addEventListener("click", function(){
+
+ const lastbtn = Number(thirdprice.innerText);
+ const qunantity = Number(input_field.value);
+
+ cartTotal += lastbtn * qunantity
+
+ total_price.innerText = cartTotal.toFixed(2);
+
+
+})
+
+
+
+
+</script>
+
+
+</html>

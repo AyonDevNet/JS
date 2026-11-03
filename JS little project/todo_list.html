@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-Do List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        input, button {
+            padding: 10px;
+        }
+
+        li {
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+      .button_same{
+         background-color: red;
+            font-weight: bold;
+
+
+        }
+    </style>
+</head>
+<body>
+
+    <h2>My To-Do List</h2>
+
+    <input id="taskInput" placeholder="Enter a task">
+    <button id="addButton"  >Add</button>
+
+    <ol id="taskList"></ol>
+    
+    <button id="clearbtn" class="button_same">clear all</button>
+    <button id="delete_btn" class="button_same">Delete</button>
+
+
+</body>
+
+<script>
+ 
+ // call the element
+const input_field = document.getElementById("taskInput");
+const button = document.getElementById("addButton");
+const UiList = document.getElementById("taskList");
+const clearButton = document.getElementById("clearbtn");
+const deletedButton = document.getElementById("delete_btn");
+
+// add area button
+button.addEventListener("click", function() {
+    // console.log("Button clicked!");
+     
+    //input values
+    const Data_input = input_field.value;
+    
+    //create UI list
+    const listItem = document.createElement('li');
+    
+    // value of list
+    listItem.textContent = Data_input;
+
+    //add to Ui list
+    UiList.appendChild(listItem);
+
+    input_field.value = " ";
+   
+});
+
+ // delete all element by using button
+clearButton.addEventListener("click", function() {
+    console.log("Button clicked!");
+
+   UiList.textContent = " ";
+   
+});
+
+
+// delete single by using button
+deletedButton.addEventListener("click", function(){
+ 
+     const leatdelte = UiList.lastElementChild;
+     if(leatdelte)
+     {
+        leatdelte.remove();
+     }
+
+})
+
+
+
+</script>
+
+</html>

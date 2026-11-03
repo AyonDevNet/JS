@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payoo | Cashout</title>
+
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+
+    <!-- DaisyUI and Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Global Font Style -->
+    <style>
+        * {
+            font-family: "Outfit", sans-serif;
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+</head>
+
+<body class="min-h-screen max-w-md bg-base-200 mx-auto">
+
+    <!-- Header / Balance -->
+    <header class="bg-base-100 border-b border-base-300 px-4 py-3 sticky top-0 bg-base-200">
+        <div class="flex items-center justify-between">
+
+            <!-- Payoo Logo -->
+            <img src="./assets/logo.png" alt="Payoo Logo" class="w-14">
+
+            <!-- Available Balance -->
+            <div class="flex-1 ml-4">
+                <h1 class="text-lg font-bold">$<span id="Main_Amount">45000</span></h1>
+                <p class="text-xs text-gray-500">Available Balance</p>
+            </div>
+
+            <!-- Logout Button -->
+            <a href="./login.html" class="btn btn-outline btn-sm">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Log Out
+            </a>
+
+        </div>
+    </header>
+
+    <main class="p-4">
+
+        <!-- Welcome Section -->
+        <section class="mb-5">
+            <h2 class="text-xl font-bold">
+                Welcome to Pay<span class="text-primary">oo</span>
+            </h2>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Enjoy easy and convenient financial services with us.
+                Cashout charge is low and
+            </p>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="grid grid-cols-3 gap-2">
+
+            <!-- Add Money Service Card -->
+            <!-- CHANGED: Removed hidden and updated onclick -->
+            <button
+                type="button"
+                onclick="showOnly('add_money_form')"
+                class="card bg-base-100 border border-base-300 hover:bg-primary/10 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+
+                <div class="card-body items-center justify-center gap-2 p-3">
+                    <img src="./assets/opt-1.png" alt="" class="w-7 h-7">
+                    <span class="text-xs text-center">Add Money</span>
+                </div>
+
+            </button>
+
+            <!-- Cash Out Service Card -->
+            <!-- CHANGED: Removed hidden and updated onclick -->
+            <button
+                type="button"
+                onclick="showOnly('cashout_form')"
+                class="card bg-base-100 border border-base-300 hover:bg-primary/10 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+
+                <div class="card-body items-center justify-center gap-2 p-3">
+                    <img src="./assets/opt-2.png" alt="" class="w-7 h-7">
+                    <span class="text-xs text-center">Cashout</span>
+                </div>
+
+            </button>
+
+            <!-- Transfer Money -->
+            <a href="#" onclick="showOnly('transfer_money_form')"  class="card bg-base-100 border border-base-300 hover:bg-primary/10 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <div class="card-body items-center justify-center gap-2 p-3">
+                    <img src="./assets/opt-3.png" alt="" class="w-7 h-7">
+                    <span class="text-xs text-center">Transfer Money</span>
+                </div>
+            </a>
+
+            <!-- Get Bonus -->
+            <a href="#" class="card bg-base-100 border border-base-300 hover:bg-primary/10 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <div class="card-body items-center justify-center gap-2 p-3">
+                    <img src="./assets/opt-4.png" alt="" class="w-7 h-7">
+                    <span class="text-xs text-center">Get Bonus</span>
+                </div>
+            </a>
+
+            <!-- Pay Bill -->
+            <a href="#" onclick="showOnly('pay_bill_form')" class="card bg-base-100 border border-base-300 hover:bg-primary/10 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <div class="card-body items-center justify-center gap-2 p-3">
+                    <img src="./assets/opt-5.png" alt="" class="w-7 h-7">
+                    <span class="text-xs text-center">Pay Bill</span>
+                </div>
+            </a>
+
+            <!-- Transactions -->
+            <a href="#" class="card bg-base-100 border border-base-300 hover:bg-primary/10 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <div class="card-body items-center justify-center gap-2 p-3">
+                    <img src="./assets/opt-6.png" alt="" class="w-7 h-7">
+                    <span class="text-xs text-center">Transactions</span>
+                </div>
+            </a>
+
+        </section>
+        <!-- Services Grid End -->
+
+
+        <!-- Add Money Section -->
+        <!-- CHANGED: Added id and hidden -->
+        <section id="add_money_form" class="hidden bg-base-200 p-4">
+
+            <h2 class="text-base font-bold mb-3">
+                Add Money
+            </h2>
+
+            <div class="card bg-base-100 rounded-3xl shadow-sm">
+                <div class="card-body p-5 gap-4">
+
+                    <!-- Select Bank -->
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">Select A Bank</span>
+                        </label>
+
+                        <select id="bank_list" class="select w-full rounded-full bg-base-200 border-none outline-none">
+                            <option disabled selected>Select bank</option>
+                            <option>Public Bank Berhad</option>
+                            <option>Malayan Banking Berhad</option>
+                            <option>RHB Bank Berhad</option>
+                            <option>Alliance Bank Malaysia Berhad</option>
+                            <option>Standard Chartered Bank Malaysia Berhad</option>
+                        </select>
+                    </div>
+
+                    <!-- Bank Account Number -->
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">Bank Account Number</span>
+                        </label>
+
+                        <input id="bank_account" type="text" inputmode="numeric" maxlength="11"
+                            placeholder="Enter 11 digit account number"
+                            class="input w-full rounded-full bg-base-200 border-none outline-none">
+                    </div>
+
+                    <!-- Amount to Add -->
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">Amount to Add</span>
+                        </label>
+
+                        <input id="amount_number" type="number" min="1"
+                            placeholder="Add Amount to withdraw"
+                            class="input w-full rounded-full bg-base-200 border-none outline-none">
+                    </div>
+
+                    <!-- PIN Number -->
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">Pin Number</span>
+                        </label>
+
+                        <input id="pin_Number" type="password" inputmode="numeric" maxlength="4"
+                            placeholder="Enter 4 digit pin number"
+                            class="input w-full rounded-full bg-base-200 border-none outline-none">
+                    </div>
+
+                    <!-- Add Money Submit Button -->
+                    <!-- UNCHANGED: Keep your existing button ID -->
+                    <button id="add_button" type="button" class="btn btn-primary w-full rounded-full text-base">
+                        Add Money
+                    </button>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Cash Out Section -->
+        <!-- CHANGED: Added id and hidden -->
+        <section id="cashout_form" class="hidden bg-base-200 pt-2">
+
+            <h2 class="text-base font-bold mb-3">
+                Cash Out
+            </h2>
+
+            <div class="card bg-base-100 rounded-3xl shadow-sm">
+                <div class="card-body p-5 gap-4">
+
+                    <!-- Agent Number -->
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">Agent Number</span>
+                        </label>
+
+                        <input type="text" id="agent_number" inputmode="numeric" maxlength="11"
+                            placeholder="Enter 11 digit number"
+                            class="input w-full rounded-full bg-base-200 border-none outline-none">
+                    </div>
+
+                    <!-- Amount -->
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">Amount</span>
+                        </label>
+
+                        <input type="number" id="Amount_Number" min="1"
+                            placeholder="Enter amount to withdraw"
+                            class="input w-full rounded-full bg-base-200 border-none outline-none">
+                    </div>
+
+                    <!-- PIN Number -->
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">Pin Number</span>
+                        </label>
+
+                        <input type="password" id="Pin_Number" inputmode="numeric" maxlength="4"
+                            placeholder="Enter 4 digit pin number"
+                            class="input w-full rounded-full bg-base-200 border-none outline-none">
+                    </div>
+
+                    <!-- Withdraw Submit Button -->
+                    <!-- UNCHANGED: Keep your existing button ID -->
+                    <button id="CashOut" type="button" class="btn btn-primary w-full rounded-full text-base">
+                        Withdraw Money
+                    </button>
+
+                </div>
+            </div>
+
+        </section>
+        <!-- Cash Out Section End -->
+
+      
+    
+<section id="transfer_money_form" class=" hidden bg-base-200 p-4">
+
+    <h2 class="text-base font-bold mb-3">
+        Transfer Money
+    </h2>
+
+    <div class="card bg-base-100 rounded-3xl shadow-sm">
+        <div class="card-body p-5 gap-4">
+
+            <!-- User Account Number -->
+            <div class="form-control w-full">
+                <label class="label">
+                    <span class="label-text font-medium">User Account Number</span>
+                </label>
+
+                <input id="user_account" type="text" inputmode="numeric" maxlength="11"
+                    placeholder="Enter 11 digit number"
+                    class="input w-full rounded-full bg-base-200 border-none outline-none">
+            </div>
+
+            <!-- Amount -->
+            <div class="form-control w-full">
+                <label class="label">
+                    <span class="label-text font-medium">Amount</span>
+                </label>
+
+                <input id="transfer_amount" type="number" min="1"
+                    placeholder="Enter amount to transfer"
+                    class="input w-full rounded-full bg-base-200 border-none outline-none">
+            </div>
+
+            <!-- PIN Number -->
+            <div class="form-control w-full">
+                <label class="label">
+                    <span class="label-text font-medium">Pin Number</span>
+                </label>
+
+                <input id="transfer_pin" type="password" inputmode="numeric" maxlength="4"
+                    placeholder="Enter 4 digit pin number"
+                    class="input w-full rounded-full bg-base-200 border-none outline-none">
+            </div>
+
+            <!-- Transfer Money Submit Button -->
+            <button  id="transfer_btn" type="button"
+                class="btn btn-primary w-full rounded-full text-base">
+                Send Now
+            </button>
+
+        </div>
+    </div>
+
+</section>
+
+
+
+
+<!-- Pay Bill Form -->
+<section id="pay_bill_form" class="hidden bg-base-200 p-4">
+
+    <h2 class="text-base font-bold mb-3">
+        Pay Bill
+    </h2>
+
+    <div class="card bg-base-100 rounded-3xl shadow-sm">
+        <div class="card-body p-5 gap-4">
+
+            <!-- Select Bill Category -->
+            <div class="form-control w-full">
+                <label class="label">
+                    <span class="label-text font-medium">Select To Pay</span>
+                </label>
+
+                <select id="bill_type"
+                    class="select w-full rounded-full bg-base-200 border-none outline-none">
+
+                    <option value="" disabled selected>Select bill category</option>
+                    <option value="electricity">Electricity Bill</option>
+                    <option value="water">Water Bill</option>
+                    <option value="internet">Internet Bill</option>
+                    <option value="gas">Gas Bill</option>
+                    <option value="telephone">Telephone Bill</option>
+
+                </select>
+            </div>
+
+            <!-- Biller Account Number -->
+            <div class="form-control w-full">
+                <label class="label">
+                    <span class="label-text font-medium">Biller Account Number</span>
+                </label>
+
+                <input id="biller_account" type="text" inputmode="numeric"
+                    placeholder="Enter account number"
+                    class="input w-full rounded-full bg-base-200 border-none outline-none">
+            </div>
+
+            <!-- Amount to Pay -->
+            <div class="form-control w-full">
+                <label class="label">
+                    <span class="label-text font-medium">Amount to Pay</span>
+                </label>
+
+                <input id="bill_amount" type="number" min="1"
+                    placeholder="Add Amount to pay"
+                    class="input w-full rounded-full bg-base-200 border-none outline-none">
+            </div>
+
+            <!-- PIN Number -->
+            <div class="form-control w-full">
+                <label class="label">
+                    <span class="label-text font-medium">Pin Number</span>
+                </label>
+
+                <input id="bill_pin" type="password" inputmode="numeric" maxlength="4"
+                    placeholder="Enter 4 digit pin number"
+                    class="input w-full rounded-full bg-base-200 border-none outline-none">
+            </div>
+
+            <!-- Pay Bill Button -->
+            <button id="pay_bill_btn" type="button"
+                class="btn btn-primary w-full rounded-full text-base">
+                Pay Now
+            </button>
+
+        </div>
+    </div>
+
+</section>
+
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="./script js/machine.js"></script>
+    <script src="./script js/cashout.js"></script>
+    <script src="./script js/add_money.js"></script>
+    <script src="./script js/transferMoney.js"></script>
+
+</body>
+</html>

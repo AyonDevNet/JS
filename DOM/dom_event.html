@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="makechange()">Change the BG color</button>
+    <button type="button" onclick="makeRed()">Change the BG red</button>
+    <button type="button" id="btn-id-cg">Change the BG Dark</button>
+    <input type="text"  onblur="changeColor()" placeholder="Enter your name">
+
+    <h1 id="title_update">This is the random title</h1>
+    <button id="btn_clicked">Click me To update</button>
+
+     <br>
+      <br>
+
+      <h3 id="update_name">Add your name</h3>
+      <input type="text" name="" id="input_name"> <button id="add_your_name">Add your name</button>
+
+     <script>
+
+         // call the button for function where all things will be happened
+
+         document.getElementById("add_your_name").addEventListener('click', function(){
+            // console.log("clicked")
+
+            //then call the input field values
+            const InputFieldValue = document.getElementById("input_name")    
+             
+            //then call the title for main update 
+            const updateTitle = document.getElementById("update_name");
+
+            updateTitle.innerText= InputFieldValue.value;
+        
+        
+        
+        
+        })
+
+
+
+        function makechange(){
+            document.body.style.background = "yellow";
+
+        }
+
+
+        function makeRed()
+        {
+            document.body.style.background = "red";
+        }
+        function makeRed2()
+        {
+            document.body.style.background = "red";
+        }
+         function changeColor() {
+            document.querySelector("input").style.background = "gray";
+        }
+ 
+        const btn_id = document.getElementById("btn-id-cg")
+        btn_id.onclick = function makedark(){
+            document.body.style.background = "#0A0A0A"
+        }
+
+
+        document.getElementById("btn_clicked").addEventListener('click',function(){
+                
+            const titleUpdate = document.getElementById("title_update")
+            titleUpdate.innerText = "I am changed"
+
+        })
+
+     </script>
+</body>
+</html>

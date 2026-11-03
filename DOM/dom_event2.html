@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Comment Box</title>
+    <!-- <link rel="stylesheet" href="style.css">
+      -->
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f1e9;
+    margin: 0;
+    padding: 30px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+h1 {
+    color: #333;
+}
+
+.comment {
+    background-color: #e8f0e8;
+    border: 2px solid #78909c;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 12px;
+    font-size: 17px;
+}
+
+textarea {
+    width: 100%;
+    max-width: 600px;
+    height: 100px;
+    padding: 12px;
+    font-size: 16px;
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #388e3c;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>My Awesome Comment Box!</h1>
+        <h3>All comments here</h3>
+
+        <div id="comment-container">
+            <p class="comment">This is my first comment!</p>
+            <p class="comment">JavaScript makes websites interactive.</p>
+        </div>
+
+        <textarea id="comment-input"
+            placeholder="Write what is in your mind..."></textarea>
+
+        <button id="post-button">Post</button>
+    </div>
+
+    <script>
+   document.getElementById("post-button").addEventListener('click', function(){
+    //    console.log("clicked")
+
+    const inputFieldValue = document.getElementById("comment-input")
+     const newComment = inputFieldValue.value;
+
+    
+     //container 
+     const containerId = document.getElementById('comment-container')
+
+     const createElements = document.createElement('p')
+     createElements.classList.add("comment")
+     console.log(createElements)
+     createElements.innerText = newComment; 
+
+    
+
+     //append 
+
+     containerId.append(createElements)
+
+         inputFieldValue.value = "";
+
+   })
+
+
+    </script>
+</body>
+</html>

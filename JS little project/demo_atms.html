@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple ATM Simulator</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.atm-container {
+    background-color: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.balance-card {
+    background-color: #0f766e;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.balance-card p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.balance-card h2 {
+    font-size: 28px;
+}
+
+.transaction-section {
+    margin-bottom: 22px;
+}
+
+.transaction-section h3 {
+    font-size: 17px;
+    color: #334155;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    outline: 2px solid #0f766e;
+    border-color: #0f766e;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0f766e;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #115e59;
+}
+
+#withdrawButton {
+    background-color: #dc2626;
+}
+
+#withdrawButton:hover {
+    background-color: #b91c1c;
+}
+
+#message {
+    text-align: center;
+    font-size: 14px;
+    color: #64748b;
+    margin-top: 10px;
+}
+
+     </style>
+</head>
+<body>
+
+    <div class="atm-container">
+        <h1>ATM Simulator</h1>
+        <p class="subtitle">Manage your balance</p>
+
+        <div class="balance-card">
+            <p>Current Balance</p>
+            <h2>RM</h2>
+            <h2 id="mainMoney">00.00</h2>
+        </div>
+
+        <div class="transaction-section">
+            <h3>Deposit Money</h3>
+            <input type="number" id="depositInput"
+                   placeholder="Enter deposit amount">
+            <button id="depositButton">Deposit</button>
+        </div>
+
+        <div class="transaction-section">
+            <h3>Withdraw Money</h3>
+            <input type="number" id="withdrawInput"
+                   placeholder="Enter withdrawal amount">
+            <button id="withdrawButton">Withdraw</button>
+        </div>
+
+        <p id="message">Welcome! Please select a transaction.</p>
+    </div>
+
+
+
+    <script>
+
+
+       const mainAmount = document.getElementById("mainMoney");
+       const depositeAmount = document.getElementById("depositInput");
+       const depositebtn = document.getElementById("depositButton");
+       const withdrawAmount = document.getElementById("withdrawButton")
+       const withdrawInput = document.getElementById('withdrawInput');
+
+
+   depositebtn.addEventListener("click" , function(){
+
+     const inputValuesDepo = Number(depositeAmount.value);
+     const mainAmountvalue = Number(mainAmount.innerText);
+     const result = inputValuesDepo + mainAmountvalue;
+     mainAmount.innerText = result;
+     depositeAmount.value = "";
+    //  console.log(result);
+
+   })
+
+
+   //witdraw button
+
+withdrawAmount.addEventListener("click", function () {
+
+    const inputDrawValue = Number(withdrawInput.value);
+    const withdrawOutput = Number(mainAmount.innerText);
+
+    if (withdrawInput.value === "" || inputDrawValue <= 0) {
+        alert("Please enter a valid withdrawal amount!");
+    }
+    else if (inputDrawValue > withdrawOutput) {
+        alert("Insufficient balance! You cannot withdraw this amount.");
+    }
+    else {
+        const withdrawResult = withdrawOutput - inputDrawValue;
+
+        mainAmount.innerText = withdrawResult;
+        withdrawInput.value = "";
+
+        alert("Withdrawal successful!");
+    }
+
+    
+
+});
+
+
+//witdraw button
+//    withdrawAmount.addEventListener("click" , function(){
+    
+//        const inputDrawValue = Number(withdrawInput.value);
+//        const withdrawOutput = Number(mainAmount.innerText)
+//        const withdrawResult =  withdrawOutput - inputDrawValue;
+
+//        mainAmount.innerText = withdrawResult;
+//      //    console.log("add")
+     
+//       if (inputDrawValue <= 0) {
+//         alert("Please enter a valid withdrawal amount!");
+//     } 
+//     else if (inputDrawValue > withdrawOutput) {
+//         alert("Insufficient balance! You cannot withdraw this amount.");
+//     } 
+//     else {
+//         const withdrawResult = withdrawOutput - inputDrawValue;
+
+//         mainAmount.innerText = withdrawResult;
+
+//         alert("Withdrawal successful!");
+//     }
+
+//    })
+
+
+    </script>
+</body>
+</html>

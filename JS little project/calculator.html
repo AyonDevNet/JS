@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <!-- <link rel="stylesheet" href="calculator.css"> -->
+     <style>
+
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 350px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+#display {
+    width: 100%;
+    height: 70px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e2e8f0;
+    color: #1e293b;
+    font-size: 30px;
+    text-align: right;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    height: 55px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e2e8f0;
+    color: #1e293b;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #cbd5e1;
+}
+
+.operator {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.operator:hover {
+    background-color: #bfdbfe;
+}
+
+.clear {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.clear:hover {
+    background-color: #fecaca;
+}
+
+.equals {
+    grid-row: span 2;
+    height: auto;
+    background-color: #0f766e;
+    color: white;
+}
+
+.equals:hover {
+    background-color: #115e59;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+     </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <h1>Calculator</h1>
+
+        <!-- Display -->
+        <input type="text" id="display" placeholder="0" readonly>
+
+        <!-- Calculator Buttons -->
+        <div class="buttons">
+
+            <button id="clearButton" class="clear">C</button>
+            <button id="deleteButton" class="operator">DEL</button>
+            <button class="operator" data-operator="/">÷</button>
+            <button class="operator" data-operator="*">×</button>
+
+            <button data-number="7">7</button>
+            <button data-number="8">8</button>
+            <button data-number="9">9</button>
+            <button class="operator" data-operator="-">−</button>
+
+            <button data-number="4">4</button>
+            <button data-number="5">5</button>
+            <button data-number="6">6</button>
+            <button class="operator" data-operator="+">+</button>
+
+            <button data-number="1">1</button>
+            <button data-number="2">2</button>
+            <button data-number="3">3</button>
+            <button id="equalsButton" class="equals">=</button>
+
+            <button data-number="0" class="zero">0</button>
+            <button id="decimalButton">.</button>
+
+        </div>
+    </div>
+
+</body>
+
+
+
+ <script>
+  
+/* =====================================
+   1. SELECT HTML ELEMENTS
+===================================== */
+
+const numberButtons = document.querySelectorAll("[data-number]");
+const operatorButtons = document.querySelectorAll("[data-operator]");
+
+const displayInput = document.getElementById("display");
+const clearButton = document.getElementById("clearButton");
+const deleteButton = document.getElementById("deleteButton");
+const equalsButton = document.getElementById("equalsButton");
+const decimalButton = document.getElementById("decimalButton");
+
+
+/* =====================================
+   2. STORE CALCULATION VALUES
+===================================== */
+
+let firstNumber = 0;
+let operator = "";
+let shouldResetDisplay = false;
+
+
+/* =====================================
+   3. NUMBER BUTTONS
+===================================== */
+
+numberButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const buttonNumber = button.dataset.number;
+
+        // Start a new number after selecting an operator or getting a result
+        if (shouldResetDisplay) {
+            displayInput.value = "";
+            shouldResetDisplay = false;
+        }
+
+        // Add the clicked digit to the display
+        displayInput.value = displayInput.value + buttonNumber;
+
+    });
+
+});
+
+
+/* =====================================
+   4. OPERATOR BUTTONS
+===================================== */
+
+operatorButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        // Ignore clicks on DEL, which also has data-operator in some HTML designs.
+        // In this HTML, only the arithmetic buttons have data-operator.
+
+        // Do not calculate if the display is empty
+        if (displayInput.value === "") {
+            return;
+        }
+
+        firstNumber = Number(displayInput.value);
+        operator = button.dataset.operator;
+
+        // Prepare the display for the second number
+        displayInput.value = "";
+        shouldResetDisplay = false;
+
+    });
+
+});
+
+
+/* =====================================
+   5. EQUALS BUTTON
+===================================== */
+
+equalsButton.addEventListener("click", function() {
+
+    // Make sure both numbers and an operator exist
+    if (displayInput.value === "" || operator === "") {
+        return;
+    }
+
+    const secondNumber = Number(displayInput.value);
+    let result;
+
+    // Choose the calculation based on the selected operator
+    if (operator === "+") {
+        result = firstNumber + secondNumber;
+    }
+    else if (operator === "-") {
+        result = firstNumber - secondNumber;
+    }
+    else if (operator === "*") {
+        result = firstNumber * secondNumber;
+    }
+    else if (operator === "/") {
+
+        if (secondNumber === 0) {
+            alert("Cannot divide by zero!");
+            return;
+        }
+
+        result = firstNumber / secondNumber;
+    }
+
+    // Show the result
+    displayInput.value = result;
+
+    // Clear the operator and prepare for the next calculation
+    operator = "";
+    shouldResetDisplay = true;
+
+});
+
+
+/* =====================================
+   6. CLEAR BUTTON
+===================================== */
+
+clearButton.addEventListener("click", function() {
+
+    displayInput.value = "";
+
+    firstNumber = 0;
+    operator = "";
+    shouldResetDisplay = false;
+
+});
+
+
+/* =====================================
+   7. DELETE BUTTON
+===================================== */
+
+deleteButton.addEventListener("click", function() {
+
+    // Remove the last character
+    displayInput.value = displayInput.value.slice(0, -1);
+
+});
+
+
+/* =====================================
+   8. DECIMAL BUTTON
+===================================== */
+
+decimalButton.addEventListener("click", function() {
+
+    // Start a new number if the previous input was a result
+    if (shouldResetDisplay) {
+        displayInput.value = "";
+        shouldResetDisplay = false;
+    }
+
+    // Add a decimal point only if one doesn't already exist
+    if (!displayInput.value.includes(".")) {
+
+        if (displayInput.value === "") {
+            displayInput.value = "0.";
+        }
+        else {
+            displayInput.value += ".";
+        }
+
+    }
+
+});
+
+ </script>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loot – Fruits</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- Reusable basket icon (referenced with <use>) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="basket" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 12h24l-2.5 14a2 2 0 0 1-2 1.7H8.5a2 2 0 0 1-2-1.7L4 12z"/>
+    <path d="M10 12l5-8M22 12l-5-8"/>
+    <path d="M11 17v6M16 17v6M21 17v6"/>
+  </symbol>
+</svg>
+
+<div class="app">
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="logo">LOOT<b>FRUITS</b></div>
+    <nav class="nav" aria-label="Main">
+      <a href="#">Language&nbsp; English</a>
+      <a href="#">My Account</a>
+      <a href="#">Orders</a>
+      <a href="#">Coupons</a>
+      <button class="cart-btn" aria-label="Open basket" title="Basket">
+        <svg><use href="#basket"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Search + promos -->
+  <section class="top-row">
+    <form class="search" onsubmit="return false">
+      <input type="text" placeholder="Search fruits" aria-label="Search fruits">
+      <button type="submit">Search</button>
+    </form>
+    <div class="promo">
+      <span><strong>Free Delivery</strong>Over €50 orders</span>
+    </div>
+    <div class="promo green">
+      <span><strong>Shop online</strong>get your shopping in same day</span>
+    </div>
+  </section>
+
+  <h1>Fruits</h1>
+
+  <!-- Products -->
+  <main class="products">
+
+    <!-- Featured card (yellow) -->
+    <article class="card">
+      <div class="card-head">
+        <span class="name">Banana</span>
+        <div class="price"><small>KG</small><del>€4.99</del><b>€3.99</b></div>
+      </div>
+      <div class="img-slot"><img src="./download (7).jpg" alt="Banana"></div>
+      <button class="add" aria-label="Add Banana to basket"><svg><use href="#basket"/></svg></button>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="name">Strawberry</span>
+        <div class="price"><small>KG</small><del>€3.99</del><b>€2.99</b></div>
+      </div>
+      <div class="img-slot"><img src="./download (8).jpg" alt="Strawberry"></div>
+      <button class="add" aria-label="Add Strawberry to basket"><svg><use href="#basket"/></svg></button>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="name">Orange</span>
+        <div class="price"><small>KG</small><del>€3.99</del><b>€1.99</b></div>
+      </div>
+      <div class="img-slot"><img src="./orange.jpg" alt="Orange"></div>
+      <button class="add" aria-label="Add Orange to basket"><svg><use href="#basket"/></svg></button>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="name">Apple</span>
+        <div class="price"><small>KG</small><del>€3.99</del><b>€2.99</b></div>
+      </div>
+      <div class="img-slot"><img src="./Download premium png of PNG Apple fruit plant food by Chalr about apple drawing, red apple png, nectarine, apple png, and juicy fruit 13210685.jpg" alt="Apple"></div>
+      <button class="add" aria-label="Add Apple to basket"><svg><use href="#basket"/></svg></button>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="name">Pineapple</span>
+        <div class="price"><small>KG</small><del>€3.99</del><b>€1.99</b></div>
+      </div>
+      <div class="img-slot"><img src="./download (9).jpg" alt="Pineapple"></div>
+      <button class="add" aria-label="Add Pineapple to basket"><svg><use href="#basket"/></svg></button>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="name">Lemon</span>
+        <div class="price"><small>KG</small><del>€3.99</del><b>€2.99</b></div>
+      </div>
+      <div class="img-slot"><img src="./Lemon with cut in half and green leaf isolated on white background _ Premium Photo.jpg" alt="Lemon"></div>
+      <button class="add" aria-label="Add Lemon to basket"><svg><use href="#basket"/></svg></button>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="name">Blueberry</span>
+        <div class="price"><small>KG</small><del>€4.99</del><b>€3.99</b></div>
+      </div>
+      <div class="img-slot"><img src="./Organic Sweet Blueberries For Baking And Desserts, Blueberries For Baking And Desserts, Organic Sweet Blueberries PNG Transparent Image and Clipart for Free Download.jpg" alt="Blueberry"></div>
+      <button class="add" aria-label="Add Blueberry to basket"><svg><use href="#basket"/></svg></button>
+    </article>
+
+  </main>
+</div>
+
+
+  
+</body>
+
+<script src="./script.js"></script>
+</html>

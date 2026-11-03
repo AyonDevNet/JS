@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript DOM Example</title>
+</head>
+<body>
+    <h1>hello world</h1>
+    <a href="">Go to website</a>
+
+    <script>
+        let h1 = document.querySelector("h1");
+        h1.textContent = "hello Country";
+        console.dir(h1);
+
+        let a = document.querySelector("a");
+        a.href = "https://www.google.com/";
+
+         let h2 = document.createElement("h2");
+         h2.textContent = " Hello World"
+         document.querySelector("body").append(h2);
+
+
+    </script>
+</body>
+</html>

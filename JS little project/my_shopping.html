@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 60%;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #addButton {
+            background-color: blue;
+            color: white;
+        }
+
+        #deleteButton {
+            background-color: orange;
+            color: white;
+            margin-top: 15px;
+        }
+
+        #clearButton {
+            background-color: red;
+            color: white;
+            margin-top: 15px;
+        }
+
+        li {
+            margin: 12px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>My Shopping List</h2>
+
+    <input type="text" id="itemInput" placeholder="Enter an item">
+
+    <button id="addButton">Add Item</button>
+
+    <ol id="shoppingList"></ol>
+
+    <button id="deleteButton">Delete Last Item</button>
+    <button id="clearButton">Clear All</button>
+
+</body>
+
+
+ <script>
+ 
+  const inputField = document.getElementById("itemInput");
+  const addItemBtn = document.getElementById("addButton");
+  const listItem = document.getElementById("shoppingList");
+  const OnlyDeltebtn = document.getElementById("deleteButton");
+  const ClearButn = document.getElementById("clearButton")
+
+
+  // add iteam : 
+  addItemBtn.addEventListener("click", function(){
+   
+     const DataInput = inputField.value;
+    //  console.log(DataInput);
+
+      const NewOI = document.createElement('li');
+      NewOI.textContent = DataInput;
+      listItem.appendChild(NewOI)
+      inputField.value = "";
+  })
+
+  // clear all the btn
+
+  ClearButn.addEventListener("click", function(){
+     
+    
+         listItem.textContent = " ";
+  
+
+  })
+
+
+  // delete last item
+ 
+  OnlyDeltebtn.addEventListener("click" , function(){
+    
+    const leastItem = listItem.lastElementChild;
+    if(leastItem){
+
+         leastItem.remove();
+    }
+
+
+
+
+  })
+
+
+ </script>
+</html>
