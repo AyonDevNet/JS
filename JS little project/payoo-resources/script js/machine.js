@@ -28,12 +28,15 @@ function showOnly(id) {
     const cashOutForm = document.getElementById("cashout_form");
     const transferMoney = document.getElementById("transfer_money_form");
     const payBill = document.getElementById("pay_bill_form")
+    const transactionForm  = document.getElementById("transaction_form")
 
     // Hide both forms
     addMoneyForm.classList.add("hidden");
     cashOutForm.classList.add("hidden");
     transferMoney.classList.add("hidden");
     payBill.classList.add("hidden");
+    transactionForm.classList.add("hidden")
+
 
     // Show the selected form
     const selectedForm = document.getElementById(id);

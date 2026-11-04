@@ -50,7 +50,9 @@ document.getElementById("CashOut").addEventListener("click", function () {
     // CHANGED 2: Update balance using your reusable function
     setValue(result);
 
-    alert("Cashout successfully");
+alert(`Cashout successfully ${AmountNumberValue} and ${new Date()}`);
+
+
 });
 
 

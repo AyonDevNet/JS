@@ -124,12 +124,12 @@
             </a>
 
             <!-- Transactions -->
-            <a href="#" class="card bg-base-100 border border-base-300 hover:bg-primary/10 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-                <div class="card-body items-center justify-center gap-2 p-3">
-                    <img src="./assets/opt-6.png" alt="" class="w-7 h-7">
-                    <span class="text-xs text-center">Transactions</span>
-                </div>
-            </a>
+                <div onclick="showOnly('transaction_form')"
+            class="flex h-[90px] flex-col items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white cursor-pointer">
+             <img src="./assets/opt-6.png" alt="" srcset="">
+            <span class="text-xs text-gray-700">Transactions</span>
+
+        </div>
 
         </section>
         <!-- Services Grid End -->
@@ -311,7 +311,7 @@
             <button  id="transfer_btn" type="button"
                 class="btn btn-primary w-full rounded-full text-base">
                 Send Now
-            </button>
+            </button>   
 
         </div>
     </div>
@@ -395,6 +395,32 @@
 </section>
 
 
+
+
+<section id="transaction_form" class="hidden bg-base-200 p-4">
+
+    <h2 class="text-base font-bold mb-3">
+        Transaction History
+    </h2>
+
+    <div class="card bg-base-100 rounded-3xl shadow-sm">
+        <div class="card-body p-5 gap-4">
+
+            <div id="transaction_list" class="space-y-3">
+
+                <p class="text-center text-sm text-gray-400">
+                    No transactions yet
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+  
+
     </main>
 
     <!-- JavaScript -->
@@ -402,6 +428,8 @@
     <script src="./script js/cashout.js"></script>
     <script src="./script js/add_money.js"></script>
     <script src="./script js/transferMoney.js"></script>
+    <script src="./script js/bill.js"></script>
+    <script src="./script js/transection.js"></script>
 
 </body>
 </html>

@@ -44,7 +44,7 @@ document.getElementById("pay_bill_btn").addEventListener("click", function () {
     const BillPin = getInputValue("bill_pin").trim();
 
     if (!/^\d{4}$/.test(BillPin)) {
-        alert("Please Enter a Correct 4 Digit PIN");
+        alert("Please Enter a Correct 4 Digit PIN ");
         return;
     }
 
@@ -54,6 +54,6 @@ document.getElementById("pay_bill_btn").addEventListener("click", function () {
     // Update Main Balance
     setValue(BillResultBalance);
 
-    alert("Your Bill Payment Successfully Completed!");
+    alert(`Your ${BillType} and Amount : ${BillAmount}  Date : ${new Date()}`);
 
 });
