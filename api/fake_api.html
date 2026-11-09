@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fake API</h1>
+    <button onclick="loadUser()">UserName</button>
+        
+    <ol id="usename">
+
+    </ol>
+
+
+    <button onclick="loadPost()">post API</button>
+    <ol id="post_display"></ol>
+    
+    <button onclick="loadimage()" > Load Image </button>
+
+     <ol id="img_ol">
+
+     </ol>
+
+  </body>
+
+ <script>
+
+    const loadimage = () =>{
+    
+      const url = "https://jsonplaceholder.typicode.com/photos";
+      fetch(url)
+      .then((res)=> res.json())
+      .then((data)=> displayImage(data))
+
+    }
+
+
+    const displayImage = (picutr)=>{
+
+     picutr.forEach(img => {
+       
+      const imagelist = document.getElementById("img_ol");
+      const imgNewlist = document.createElement("li")
+      imgNewlist.innerText = img.title
+
+      imagelist.appendChild(imgNewlist)
+
+  
+
+     }) 
+    }
+
+
+
+
+    const loadUser = () =>{
+                const url = "https://jsonplaceholder.typicode.com/users"
+                fetch(url)
+                .then((respons) => respons.json())
+                .then((data) => displayUser(data))
+
+    }
+
+      const displayUser = (users) =>{
+       
+        users.forEach(user => {
+
+            const userName = document.getElementById("usename");
+
+            const licreate = document.createElement("li");
+            licreate.innerText = user.username
+            userName.appendChild(licreate);
+
+
+            
+        });
+         
+
+      }
+
+
+    const loadPost=() => {
+    fetch("https://jsonplaceholder.typicode.com/posts#")
+    .then((res) => res.json())
+    .then((data) => display(data));
+    }
+
+    const display = (posts) =>{
+    const postContianer = document.getElementById("post_display")
+    postContianer.innerHTML=""
+      posts.forEach((post) => {
+        const li = document.createElement("li")
+        li.innerText = post.title;
+       postContianer.appendChild(li)
+      });
+
+
+    }
+ </script>
+</html>

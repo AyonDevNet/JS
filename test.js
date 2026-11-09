@@ -1,21 +1,31 @@
 
-                      //JavaScript
-                     // var , let , const different
+                //JavaScript Error
+                //= , ==, === difference;
 
-                     //var
-                        // var name = "devnet"
-                        // var name = "Rahim"
-                        // console.log(name)
+                let age = 25;
+
+                console.log(5 == '5');
+                //Type Conversion
+
+                console.log(5 === '5');
+                // 
+
+
+
+
+                     
+
+
+
+
+
                     
-                    // //let
-                    // let name = "devnet"
-                    //  name = "Rahim"
-                    // console.log(name)
+                     
 
-                    //const
+                     
+                     
 
-                    const name = "devnet"
-                    name = "Rahim"
-                        console.log(name)
+                     
+
                      
                         

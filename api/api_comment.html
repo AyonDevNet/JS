@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ 
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    padding: 30px;
+}
+
+/* Parent container */
+.comment-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 20px;
+    max-width: 1800px;
+}
+
+/* Individual card */
+.comment-card {
+    width: 100%;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+    
+
+}
+
+.comment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.card-content h3 {
+    font-size: 20px;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.card-content p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .comment-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .comment-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+            <h2>Click here to check People Comment</h2>
+            <button onclick="loadData()">Click Me</button>
+<div id="contianer_card" class="comment-container">
+</div>
+
+
+</body>
+
+    <script>
+          
+          const loadData = ()=>{
+
+             const url = "https://dummyjson.com/comments"
+
+             fetch(url)
+             .then((res)=>res.json())
+             .then(data => displayData(data.comments))
+            //  Object containing an array : {[]}
+
+          }
+
+          const displayData = (shows) =>{
+           
+            const containerComment = document.getElementById("contianer_card");
+
+            shows.forEach(show => {
+                
+                const containerNew = document.createElement("div")
+                containerNew.classList.add("comment-card");
+                containerNew.innerHTML = `
+                
+                    <div class="card-content">
+                    <h3>${show.user.fullName}</h3>
+
+                    <p>
+                    ${show.body}
+                    
+                    </p>
+
+                    <div class="card-footer">
+                        <span>❤️ ${show.likes} Likes</span>
+                        <span>Post ${show.postId}</span>
+                    </div>
+                </div>
+                
+                
+                
+                `
+
+                containerComment.appendChild(containerNew)
+
+            });
+
+
+
+
+
+          }
+     
+   </script>
+
+
+</html>

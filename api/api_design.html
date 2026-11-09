@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 30px;
+        }
+
+#main-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.postcard {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.postcard p {
+    text-align: justify;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    #main-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    #main-container {
+        grid-template-columns: 1fr;
+    }
+}
+button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>Clcik the button To see details</h2>
+    <button onclick="loadcard()">click Me</button>
+
+    <div id="main-container">
+
+      
+ 
+    </div>
+     
+
+    <script>
+
+       const loadcard =()=>{
+          const url = "https://jsonplaceholder.typicode.com/posts"  
+          
+         fetch(url)
+         .then((res) => res.json())
+         .then(data => displayData(data))
+       }
+
+     const displayData = (displays)=>{
+          
+        const miancontainer = document.getElementById("main-container")
+
+        displays.forEach(display => {
+            
+           const createhtml = document.createElement("div")
+           createhtml.innerHTML = `
+           
+               <div class="postcard">
+
+            <h3>${display.title}</h3>
+            <p>${display.body}</p>
+
+                 </div>
+           
+           `
+          miancontainer.appendChild(createhtml);
+
+        });
+       
+
+     }
+
+ 
+    </script>
+
+</body>
+</html>
