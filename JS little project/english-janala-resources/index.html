@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ==========================================
+         1. BASIC HTML CONFIGURATION
+    =========================================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>English is Easy - Learn English</title>
+
+    <!-- Website Favicon -->
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+
+
+    <!-- ==========================================
+         2. GOOGLE FONTS
+         Poppins: English
+         Hind Siliguri: Bengali
+    =========================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- ==========================================
+         3. DAISYUI CSS
+    =========================================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css"
+        rel="stylesheet">
+
+
+    <!-- ==========================================
+         4. FONT AWESOME
+         Navbar and Social Media Icons
+    =========================================== -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- ==========================================
+         5. EXTERNAL CSS
+    =========================================== -->
+
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         1. NAVBAR SECTION
+         Logo on left
+         Navigation buttons on right
+    =========================================== -->
+
+    <header class="navbar main-navbar">
+
+        <!-- Website Logo -->
+
+        <div class="navbar-start">
+
+            <a href="#" class="logo">
+
+                English
+
+                <img src="./assets/logo.png" alt="Website Logo">
+
+                <span class="bangla">বাংলা</span>
+
+            </a>
+
+        </div>
+
+
+        <!-- Navigation Buttons -->
+
+        <div class="navbar-end nav-buttons">
+
+            <!-- FAQ Button -->
+            <a href="#faq" class="btn btn-sm btn-outline">
+
+                <i class="fa-regular fa-circle-question"></i>
+
+                FAQ
+
+            </a>
+
+
+            <!-- Learn Button -->
+            <a href="#vocabulary" class="btn btn-sm btn-outline">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                Learn
+
+            </a>
+
+
+            <!-- Logout Button -->
+            <a href="#" class="btn btn-sm btn-outline">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==========================================
+         2. MAIN CONTENT
+    =========================================== -->
+
+    <main class="container">
+
+
+        <!-- ==========================================
+             2.1 HERO / HEADER SECTION
+
+             TWO COLUMN LAYOUT
+
+             LEFT:
+             - English Heading
+             - Bengali Description
+             - Registration Form
+
+             RIGHT:
+             - Teacher Image
+        =========================================== -->
+
+        <section class="hero-section">
+
+
+            <!-- LEFT COLUMN: HERO CONTENT -->
+
+            <div class="hero-content">
+
+
+                <!-- Main Heading -->
+
+                <h1>
+
+                    <span>English</span> is Easy!!
+
+                </h1>
+
+
+                <!-- Bengali Description -->
+
+                <p class="bangla">
+
+                    ঘরে বসেই ইংরেজি শেখার সহজ উপায়।
+                    আমাদের ওয়েবসাইটে ভাষা শেখার বিভিন্ন
+                    Lessons এবং Vocabulary ব্যবহার করে
+                    মাত্র কয়েক সপ্তাহে English শিখুন।
+
+                </p>
+
+
+                <!-- Registration Form -->
+
+                <form class="hero-form">
+
+
+                    <!-- Name Input -->
+
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter Your Name"
+                        class="input input-bordered"
+                    >
+
+
+                    <!-- Email Input -->
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter Your Email"
+                        class="input input-bordered"
+                    >
+
+
+                    <!-- Get Started Button -->
+
+                    <button type="button" class="btn btn-primary">
+
+                        Get Started
+
+                    </button>
+
+
+                </form>
+
+            </div>
+
+
+
+            <!-- RIGHT COLUMN: HERO IMAGE -->
+
+            <div class="hero-image">
+
+                <!--
+                    HERO IMAGE PATH
+
+                    Existing image:
+                    ./assets/hero-student.png
+
+                    Keep the transparent PNG image
+                    to preserve its original design.
+                -->
+
+                <img
+                    src="./assets/hero-student.png"
+                    alt="English Learning Teacher"
+                >
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==========================================
+             3. VOCABULARY SECTION
+
+             Seven vocabulary lesson buttons
+             Book icon inside each button
+        =========================================== -->
+
+        <section class="vocabulary-section" >
+
+
+            <!-- Vocabulary Heading -->
+
+            <h2 class="section-title">
+
+                <span>Let's</span> Learn Vocabularies
+
+            </h2>
+
+
+
+            <!-- Vocabulary Lesson Buttons -->
+
+            <div id="lesson_contianer" class="vocabulary-buttons">
+
+               <!-- Dynamic create from Javascript -->
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             4. LESSON SELECTION SECTION
+
+             Selected lesson content will appear here
+        =========================================== -->
+
+        <section class="lesson-section">
+
+
+            <div class="lesson-box">
+
+<!-- Vocabulary Card -->
+
+
+
+<section class="word-section">
+
+    <div id="word_container" class="word-container">
+
+        <!-- Cards will be generated dynamically -->
+
+    </div>
+
+    
+<!-- Word Details Modal -->
+<dialog id="word_details_modal" class="modal word-modal">
+
+   
+
+</dialog>
+
+
+
+
+
+
+<div id="word_container" class="word-container">
+
+    <!-- Default: কোনো Lesson সিলেক্ট করা হয়নি -->
+    <div class="card empty-state">
+        <div class="card-body empty-body">
+
+            <!-- Info Icon -->
+            <i class="fa-regular fa-hand-pointer empty-icon"></i>
+
+            <!-- ছোট লেখা -->
+            <p class="empty-text bangla">
+                আপনি এখনো কোনো Lesson Select করেননি
+            </p>
+
+            <!-- বড় লেখা -->
+            <h3 class="empty-title bangla">
+                একটি Lesson Select করুন
+            </h3>
+
+        </div>
+    </div>
+
+</div>
+
+</section>
+<!-- end -->
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==========================================
+             5. FREQUENTLY ASKED QUESTIONS
+
+             DaisyUI Collapse Components
+             Native HTML Details and Summary
+             No JavaScript Required
+        =========================================== -->
+
+        <section class="faq-section" id="faq">
+
+
+            <!-- FAQ Heading -->
+
+            <h2 class="section-title">
+
+                <span>Frequently</span> Asked Questions
+
+            </h2>
+
+
+
+            <!-- FAQ List -->
+
+            <div class="faq-list">
+
+
+                <!-- FAQ 1 -->
+
+                <details class="collapse collapse-arrow">
+
+                    <summary class="collapse-title">
+
+                        1. Where can I start learning English?
+
+                    </summary>
+
+                    <div class="collapse-content">
+
+                        <p>
+
+                            You can start learning English by
+                            selecting a lesson from our vocabulary
+                            section and following the learning steps.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- FAQ 2 -->
+
+                <details class="collapse collapse-arrow">
+
+                    <summary class="collapse-title">
+
+                        2. What is an English vocabulary lesson?
+
+                    </summary>
+
+                    <div class="collapse-content">
+
+                        <p>
+
+                            Vocabulary lessons help you learn new
+                            English words, their meanings and usage
+                            in everyday communication.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- FAQ 3 -->
+
+                <details class="collapse collapse-arrow">
+
+                    <summary class="collapse-title">
+
+                        3. Do I need to create an account?
+
+                    </summary>
+
+                    <div class="collapse-content">
+
+                        <p>
+
+                            You can explore the available learning
+                            content. Account requirements depend on
+                            the features you want to access.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- FAQ 4 -->
+
+                <details class="collapse collapse-arrow">
+
+                    <summary class="collapse-title">
+
+                        4. How can I identify English vocabulary?
+
+                    </summary>
+
+                    <div class="collapse-content">
+
+                        <p>
+
+                            Select a vocabulary lesson to explore
+                            English words, meanings and examples.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+
+                <!-- FAQ 5 -->
+
+                <details class="collapse collapse-arrow">
+
+                    <summary class="collapse-title">
+
+                        5. Do you offer certificates for completed courses?
+
+                    </summary>
+
+                    <div class="collapse-content">
+
+                        <p>
+
+                            Certificate availability depends on
+                            the course completion features.
+
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         6. FOOTER SECTION
+
+         LEFT:
+         Website Logo and Company Information
+
+         RIGHT:
+         Social Media Icons
+    =========================================== -->
+
+    <footer class="main-footer">
+
+
+        <div class="container footer-content">
+
+
+            <!-- FOOTER LEFT: BRANDING -->
+
+            <div class="footer-left">
+
+
+                <!-- Website Logo -->
+
+                <h3 class="footer-logo">
+
+                    English
+
+                    <img
+                        src="./assets/logo.png"
+                        alt="Website Logo"
+                    >
+
+                    <span class="bangla">বাংলা</span>
+
+                </h3>
+
+
+                <!-- Bengali Tagline -->
+
+                <h4 class="bangla">
+
+                    ইংরেজি শিখুন সহজে
+
+                </h4>
+
+
+                <!-- Company Description -->
+
+                <p class="footer-text">
+
+                    Providing ED-Tech Applications since 2025
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- FOOTER RIGHT: SOCIAL MEDIA -->
+
+            <div class="social-section">
+
+
+                <p>FOLLOW US</p>
+
+
+                <div class="social-icons">
+
+
+                    <!-- Facebook Icon -->
+
+                    <a href="#"
+                       aria-label="Facebook">
+
+                        <i class="fa-brands fa-facebook"></i>
+
+                    </a>
+
+
+                    <!-- YouTube Icon -->
+
+                    <a href="#"
+                       aria-label="YouTube">
+
+                        <i class="fa-brands fa-youtube"></i>
+
+                    </a>
+
+
+                    <!-- Instagram Icon -->
+
+                    <a href="#"
+                       aria-label="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+
+ <script src="./js/vocabulary.js"></script>
+
+</html>

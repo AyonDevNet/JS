@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job Application Tracker</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- DaisyUI -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css"
+        rel="stylesheet"
+        type="text/css"
+    />
+
+</head>
+
+<body class="bg-base-200 min-h-screen">
+
+    <main class="max-w-6xl mx-auto px-5 py-8">
+
+        <!-- Dashboard Heading -->
+        <h1 class="text-2xl font-bold text-blue-950 mb-6">
+            Job Application Tracker
+        </h1>
+
+
+        <!-- Summary Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+
+            <!-- Total -->
+            <div class="card bg-base-100 shadow-sm border border-base-300">
+                <div class="card-body p-4 gap-1">
+                    <p class="text-sm text-gray-500">Total</p>
+                    <h2 class="text-2xl font-bold text-blue-900">8</h2>
+                </div>
+            </div>
+
+            <!-- Interview -->
+            <div class="card bg-base-100 shadow-sm border border-base-300">
+                <div class="card-body p-4 gap-1">
+                    <p class="text-sm text-gray-500">Interview</p>
+                    <h2 id="interview_card" class="text-2xl font-bold text-success">0</h2>
+                </div>
+            </div>
+
+            <!-- Rejected -->
+            <div class="card bg-base-100 shadow-sm border border-base-300">
+                <div class="card-body p-4 gap-1">
+                    <p class="text-sm text-gray-500">Rejected</p>
+                    <h2 id="interview_reject" class="text-2xl font-bold text-error">0</h2>
+                </div>
+            </div>
+
+        </section>
+
+
+        <div class="divider"></div>
+
+
+        <!-- Available Jobs Heading -->
+        <section>
+
+            <div class="flex justify-between items-center mb-5">
+
+                <h2 class="text-xl font-bold text-blue-950">
+                    Available Jobs
+                </h2>
+
+                <span class="text-sm text-gray-500">
+                    8 jobs
+                </span>
+
+            </div>
+
+
+            <!-- Filter Buttons -->
+            <div class="flex gap-2 mb-5 flex-wrap">
+
+                <button class="btn btn-primary btn-sm">
+                    All
+                </button>
+
+                <a href="./interview.html" class="btn btn-outline btn-sm">
+                    Interview
+                </a>
+
+                  <a href="./interview.html" class="btn btn-outline btn-sm">
+                    Rejected
+                </a>
+
+            </div>
+
+
+            <!-- Job Cards -->
+            <div class="space-y-3">
+
+
+                <!-- Job 1 -->
+                <div class="card bg-base-100 border border-base-300 shadow-sm">
+
+                    <div class="card-body p-5">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+                                <h3 class="font-bold text-blue-950 text-lg">
+                                    Mobile First Corp
+                                </h3>
+
+                                <p class="text-sm text-gray-500">
+                                    React Native Developer
+                                </p>
+                            </div>
+
+                            <button class="btn btn-ghost btn-sm text-gray-400">
+                                🗑️
+                            </button>
+
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-2">
+                            Remote &nbsp; • &nbsp; Full-time &nbsp; • &nbsp; $130,000 - $175,000
+                        </p>
+
+                        <div>
+                            <span class="badge badge-info badge-outline">
+                                NOT APPLIED
+                            </span>
+                        </div>
+
+                        <p class="text-sm text-gray-600">
+                            Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
+                        </p>
+
+                        <div class="flex gap-2 mt-2">
+
+                            <button   class="btn btn-outline btn-success btn-sm interview-btn">
+                                INTERVIEW
+                            </button>
+
+                            <button class="btn btn-outline btn-error btn-sm btn-rejected">
+                                REJECTED
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Job 2 -->
+                <div class="card bg-base-100 border border-base-300 shadow-sm">
+
+                    <div class="card-body p-5">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+                                <h3 class="font-bold text-blue-950 text-lg">
+                                    WebFlow Agency
+                                </h3>
+
+                                <p class="text-sm text-gray-500">
+                                    Web Designer & Developer
+                                </p>
+                            </div>
+
+                            <button class="btn btn-ghost btn-sm text-gray-400">
+                                🗑️
+                            </button>
+
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-2">
+                            Los Angeles, CA &nbsp; • &nbsp; Part-time &nbsp; • &nbsp; $80,000 - $120,000
+                        </p>
+
+                        <div>
+                            <span class="badge badge-info badge-outline">
+                                NOT APPLIED
+                            </span>
+                        </div>
+
+                        <p class="text-sm text-gray-600">
+                            Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.
+                        </p>
+
+                        <div class="flex gap-2 mt-2">
+
+                            <button  class="btn btn-outline btn-success btn-sm interview-btn">
+                                INTERVIEW
+                            </button>
+
+                            <button class="btn btn-outline btn-error btn-sm btn-rejected">
+                                REJECTED
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Job 3 -->
+                <div class="card bg-base-100 border border-base-300 shadow-sm">
+
+                    <div class="card-body p-5">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+                                <h3 class="font-bold text-blue-950 text-lg">
+                                    Cloudly Technologies
+                                </h3>
+
+                                <p class="text-sm text-gray-500">
+                                    DevOps Engineer
+                                </p>
+                            </div>
+
+                            <button class="btn btn-ghost btn-sm text-gray-400">
+                                🗑️
+                            </button>
+
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-2">
+                            Kuala Lumpur, MY &nbsp; • &nbsp; Full-time &nbsp; • &nbsp; RM 6,000 - RM 9,000
+                        </p>
+
+                        <div>
+                            <span class="badge badge-info badge-outline">
+                                NOT APPLIED
+                            </span>
+                        </div>
+
+                        <p class="text-sm text-gray-600">
+                            Manage CI/CD pipelines, cloud infrastructure, Docker containers, and deployment automation.
+                        </p>
+
+                        <div class="flex gap-2 mt-2">
+
+                            <button  class="btn btn-outline btn-success btn-sm interview-btn">
+                                INTERVIEW
+                            </button>
+
+                            <button class="btn btn-outline btn-error btn-sm btn-rejected">
+                                REJECTED
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Job 4 -->
+                <div class="card bg-base-100 border border-base-300 shadow-sm">
+
+                    <div class="card-body p-5">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+                                <h3 class="font-bold text-blue-950 text-lg">
+                                    GitLab Inc.
+                                </h3>
+
+                                <p class="text-sm text-gray-500">
+                                    Junior Software Engineer
+                                </p>
+                            </div>
+
+                            <button class="btn btn-ghost btn-sm text-gray-400">
+                                🗑️
+                            </button>
+
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-2">
+                            Remote &nbsp; • &nbsp; Full-time &nbsp; • &nbsp; $100,000 - $140,000
+                        </p>
+
+                        <div>
+                            <span class="badge badge-info badge-outline">
+                                NOT APPLIED
+                            </span>
+                        </div>
+
+                        <p class="text-sm text-gray-600">
+                            Work on core product features, improve performance, and collaborate with a global engineering team.
+                        </p>
+
+                        <div class="flex gap-2 mt-2">
+
+                            <button  class="btn btn-outline btn-success btn-sm interview-btn">
+                                INTERVIEW
+                            </button>
+
+                            <button class="btn btn-outline btn-error btn-sm btn-rejected">
+                                REJECTED
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Job 5 -->
+                <div class="card bg-base-100 border border-base-300 shadow-sm">
+
+                    <div class="card-body p-5">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+                                <h3 class="font-bold text-blue-950 text-lg">
+                                    Canonical
+                                </h3>
+
+                                <p class="text-sm text-gray-500">
+                                    Linux Systems Engineer
+                                </p>
+                            </div>
+
+                            <button class="btn btn-ghost btn-sm text-gray-400">
+                                🗑️
+                            </button>
+
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-2">
+                            Remote &nbsp; • &nbsp; Full-time &nbsp; • &nbsp; $110,000 - $150,000
+                        </p>
+
+                        <div>
+                            <span class="badge badge-info badge-outline">
+                                NOT APPLIED
+                            </span>
+                        </div>
+
+                        <p class="text-sm text-gray-600">
+                            Work on Ubuntu, open-source projects, Linux infrastructure, and enterprise solutions.
+                        </p>
+
+                        <div class="flex gap-2 mt-2">
+
+                            <button  class="btn btn-outline btn-success btn-sm interview-btn">
+                                INTERVIEW
+                            </button>
+
+                            <button class="btn btn-outline btn-error btn-sm btn-rejected">
+                                REJECTED
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Job 6 -->
+                <div class="card bg-base-100 border border-base-300 shadow-sm">
+
+                    <div class="card-body p-5">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+                                <h3 class="font-bold text-blue-950 text-lg">
+                                    Keypath Education
+                                </h3>
+
+                                <p class="text-sm text-gray-500">
+                                    IT Support Engineer
+                                </p>
+                            </div>
+
+                            <button class="btn btn-ghost btn-sm text-gray-400">
+                                🗑️
+                            </button>
+
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-2">
+                            Melbourne, AU &nbsp; • &nbsp; Full-time &nbsp; • &nbsp; AUD 80,000 - AUD 110,000
+                        </p>
+
+                        <div>
+                            <span class="badge badge-info badge-outline">
+                                NOT APPLIED
+                            </span>
+                        </div>
+
+                        <p class="text-sm text-gray-600">
+                            Provide technical support, troubleshoot issues, and ensure smooth IT operations.
+                        </p>
+
+                        <div class="flex gap-2 mt-2">
+
+                            <button  class="btn btn-outline btn-success btn-sm interview-btn">
+                                INTERVIEW
+                            </button>
+
+                            <button class="btn btn-outline btn-error btn-sm btn-rejected">
+                                REJECTED
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Job 7 -->
+                <div class="card bg-base-100 border border-base-300 shadow-sm">
+
+                    <div class="card-body p-5">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+                                <h3 class="font-bold text-blue-950 text-lg">
+                                    NVIDIA
+                                </h3>
+
+                                <p class="text-sm text-gray-500">
+                                    Software Engineer Intern
+                                </p>
+                            </div>
+
+                            <button class="btn btn-ghost btn-sm text-gray-400">
+                                🗑️
+                            </button>
+
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-2">
+                            Santa Clara, CA &nbsp; • &nbsp; Internship &nbsp; • &nbsp; $40 - $55 / hour
+                        </p>
+
+                        <div>
+                            <span class="badge badge-info badge-outline">
+                                NOT APPLIED
+                            </span>
+                        </div>
+
+                        <p class="text-sm text-gray-600">
+                            Contribute to real-world projects in AI, graphics, and high-performance computing.
+                        </p>
+
+                        <div class="flex gap-2 mt-2">
+
+                            <button   class="btn btn-outline btn-success btn-sm interview-btn">
+                                INTERVIEW
+                            </button>
+
+                            <button class="btn btn-outline btn-error btn-sm btn-rejected">
+                                REJECTED
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Job 8 -->
+                <div class="card bg-base-100 border border-base-300 shadow-sm">
+
+                    <div class="card-body p-5">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+                                <h3 class="font-bold text-blue-950 text-lg">
+                                    Microsoft
+                                </h3>
+
+                                <p class="text-sm text-gray-500">
+                                    SRE (Site Reliability Engineer)
+                                </p>
+                            </div>
+
+                            <button class="btn btn-ghost btn-sm text-gray-400">
+                                🗑️
+                            </button>
+
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-2">
+                            Remote &nbsp; • &nbsp; Full-time &nbsp; • &nbsp; $140,000 - $180,000
+                        </p>
+
+                        <div>
+                            <span class="badge badge-info badge-outline">
+                                NOT APPLIED
+                            </span>
+                        </div>
+
+                        <p class="text-sm text-gray-600">
+                            Ensure reliability, scalability, and performance of cloud services at global scale.
+                        </p>
+
+                        <div class="flex gap-2 mt-2">
+
+                            <button  class="" class="btn btn-outline btn-success btn-sm interview-btn">
+                                INTERVIEW
+                            </button>
+
+                            <button class="btn btn-outline btn-error btn-sm btn-rejected">
+                                REJECTED
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+
+        <!-- job available section -->
+
+
+    </main>
+
+</body>
+<!-- script secttion -->
+ <script src="./main.js"></script>
+ <script src="./machine.js"></script>
+     <script src="./interview.js"></script>
+
+</html>
