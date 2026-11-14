@@ -121,7 +121,7 @@ const displaylesson = (lessons) =>{
                     <i class="fa-solid fa-circle-info"></i>
                 </button>
 
-                <button class="btn btn-ghost word-icon"
+                <button onclick="pronounceWord('${word.word}')" class="btn btn-ghost word-icon"
                         type="button">
                     <i class="fa-solid fa-volume-high"></i>
                 </button>
@@ -224,6 +224,11 @@ const displayInnercard = (card) => {
 
 };
 
-
+// word pronounciation part 
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
 
 loadData()
